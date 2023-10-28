@@ -21,7 +21,7 @@ passport.use(
         if (isValid) {
           return cb(null, user);
         } else {
-          return cb(null, false,{message : "Incorect password"});
+          return cb(null, false, { message: "Incorect password" });
         }
       })
       .catch((err) => {
@@ -31,13 +31,13 @@ passport.use(
   })
 );
 
-passport.serializeUser((user,cb)=> {
+passport.serializeUser((user, cb) => {
   return cb(null, {
     username: user.username,
-    id : user.id
-  })
-})
+    id: user.id,
+  });
+});
 
 passport.deserializeUser((user, cb) => {
-  return cb(null,user)
-})
+  return cb(null, user);
+});
